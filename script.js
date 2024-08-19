@@ -9,8 +9,8 @@ const chuckImgKick = new Image();
 const dogeImgStill = new Image();
 const dogeImgKick = new Image();
 
-chuckImgStill.src = 'chuck still.png';
-chuckImgKick.src = 'chuck kick.png';
+chuckImgStill.src = 'chuck still.gif';
+chuckImgKick.src = 'chuck kick.gif';
 dogeImgStill.src = 'doge still.png';
 dogeImgKick.src = 'doge kick.png';
 
@@ -56,11 +56,7 @@ let isGameStarted = false;
 let isSinglePlayer = true;
 
 function drawPaddle(paddle, isDoge = false) {
-    if (isDoge) {
-        ctx.drawImage(paddle.img, paddle.x, paddle.y, paddle.width, paddle.height);
-    } else {
-        ctx.drawImage(paddle.img, paddle.x, paddle.y, paddle.width, paddle.height);
-    }
+    ctx.drawImage(paddle.img, paddle.x, paddle.y, paddle.width, paddle.height);
 }
 
 function drawBall() {
@@ -121,7 +117,7 @@ function update() {
         ball.dx *= -1;
         ball.hitCount++;
         chuckPaddle.img = chuckImgKick;
-        setTimeout(() => chuckPaddle.img = chuckImgStill, 100);
+        setTimeout(() => chuckPaddle.img = chuckImgStill, 500);  // Increase delay to allow GIF to play
     }
 
     if (ball.hitCount >= 2) {
